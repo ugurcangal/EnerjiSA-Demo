@@ -16,5 +16,11 @@
         <item name="windowActionBar">false</item>
     </style>
 
+    <style name="RadioButtonStyle" parent="Theme.AppCompat.Light">
+
+        <item name="colorAccent">#412312</item>
+        <item name="android:textColorPrimary">#112124</item>
+
+    </style>
 
 </resources>

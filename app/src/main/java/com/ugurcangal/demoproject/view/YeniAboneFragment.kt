@@ -39,18 +39,20 @@ class YeniAboneFragment : Fragment() {
         }
 
 
-
-
         binding.imageInfo.setOnClickListener {
             if (binding.cardConstraint3.visibility == View.GONE){
                 binding.cardConstraint3.visibility = View.VISIBLE
+                binding.scrollView.fullScroll(View.FOCUS_DOWN)
+
             }else{
                 binding.cardConstraint3.visibility = View.GONE
+                binding.scrollView.fullScroll(View.FOCUS_UP)
             }
         }
 
         binding.popupCloseBtn.setOnClickListener {
             binding.cardConstraint3.visibility = View.GONE
+            binding.scrollView.fullScroll(View.FOCUS_UP)
         }
     }
 
