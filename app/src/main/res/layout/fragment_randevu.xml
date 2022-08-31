@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="randevuFragment"
+            type="com.ugurcangal.demoproject.view.RandevuFragment" />
+        <variable
+            name="resultObjectAdapter"
+            type="com.ugurcangal.demoproject.adapter.ResultObjectAdapter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.RandevuFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toolbarRandevu"
+            android:layout_width="match_parent"
+            android:background="#F9C800"
+            android:layout_height="55dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:background="#FFFFFF"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back_button"
+                android:layout_marginLeft="15dp"
+                app:layout_constraintBottom_toBottomOf="@id/toolbarRandevu"
+                app:layout_constraintTop_toTopOf="@id/toolbarRandevu"
+                app:layout_constraintStart_toStartOf="@id/toolbarRandevu"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Randevu"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/toolbarRandevu"
+                app:layout_constraintEnd_toEndOf="@id/toolbarRandevu"
+                app:layout_constraintTop_toTopOf="@id/toolbarRandevu"
+                app:layout_constraintBottom_toBottomOf="@id/toolbarRandevu"
+                 />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <TextView
+            android:id="@+id/randevuTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="30dp"
+            android:textColor="#486072"
+            android:text="Size en yakın hizmet noktalarımızdan aşağıdaki işlemler için randevu alabilir , sıra beklemeden işlemlerinizi kolayca gerçekleştirebilirsiniz."
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbarRandevu"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:adapter="@{resultObjectAdapter}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/randevuTxt" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

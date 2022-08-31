@@ -1,0 +1,32 @@
+{
+	"isMaintenance": false,
+	"statusCode": 200,
+	"errorMessage": null,
+	"errorCode": null,
+	"validationErrorMessages": null,
+	"result": {
+		"isSuccess": true,
+		"message": null,
+		"explanation": null,
+		"errorCode": null,
+		"resultObject": [{
+			"key": 1,
+			"value": "Abonelik"
+		}, {
+			"key": 2,
+			"value": "Dilekçe ve Başvuru"
+		}, {
+			"key": 4,
+			"value": "Tahliye"
+		}, {
+			"key": 5,
+			"value": "Nakil/Taşınma"
+		}],
+		"jobID": null,
+		"params": {},
+		"requestContextID": "503d12b2-622a-4087-8397-9444c971e916-20220829171439"
+	},
+	"sid": "123456",
+	"requestId": "",
+	"logUrl": ""
+}
