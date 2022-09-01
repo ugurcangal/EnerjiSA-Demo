@@ -10,22 +10,14 @@ import android.widget.LinearLayout
 import android.widget.PopupWindow
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
+import com.ugurcangal.demoproject.BaseFragment
 import com.ugurcangal.demoproject.R
 import com.ugurcangal.demoproject.databinding.FragmentYeniAboneBinding
+import com.ugurcangal.demoproject.viewmodel.YeniAboneViewModel
 
 
-class YeniAboneFragment : Fragment() {
+class YeniAboneFragment : BaseFragment<FragmentYeniAboneBinding,YeniAboneViewModel>() {
 
-    private lateinit var binding: FragmentYeniAboneBinding
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_yeni_abone, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -55,5 +47,9 @@ class YeniAboneFragment : Fragment() {
             binding.scrollView.fullScroll(View.FOCUS_UP)
         }
     }
+
+    override fun getFragmentView(): Int = R.layout.fragment_yeni_abone
+
+    override fun getViewModel(): Class<YeniAboneViewModel> = YeniAboneViewModel::class.java
 
 }

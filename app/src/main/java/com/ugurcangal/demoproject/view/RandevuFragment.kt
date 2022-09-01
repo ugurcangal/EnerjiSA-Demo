@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ugurcangal.demoproject.BaseFragment
 import com.ugurcangal.demoproject.R
 import com.ugurcangal.demoproject.adapter.ResultObjectAdapter
 import com.ugurcangal.demoproject.databinding.FragmentRandevuBinding
@@ -15,29 +16,14 @@ import com.ugurcangal.demoproject.viewmodel.RandevuViewModel
 import kotlinx.coroutines.cancel
 
 
-class RandevuFragment : Fragment() {
+class RandevuFragment : BaseFragment<FragmentRandevuBinding,RandevuViewModel>() {
 
-    private lateinit var binding: FragmentRandevuBinding
-    private lateinit var viewModel: RandevuViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val tempViewModel: RandevuViewModel by viewModels()
-        viewModel = tempViewModel
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_randevu, container, false)
-        binding.randevuFragment = this
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.randevuFragment = this
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         viewModel.getMenuCoroutine()
         observeMenuLiveData()
@@ -55,4 +41,8 @@ class RandevuFragment : Fragment() {
         super.onDestroy()
         viewModel.job.cancel()
     }
+
+    override fun getFragmentView(): Int = R.layout.fragment_randevu
+
+    override fun getViewModel(): Class<RandevuViewModel> = RandevuViewModel::class.java
 }
